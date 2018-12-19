@@ -19,6 +19,8 @@ using namespace std;
 
 class Solution {
 public:
+	// 2 identical number XOR operations are equal to 0, also all numbers XOR 0 is itself, 
+	// and XOR satisfies the multiplication commutative law, so the XOR of all numbers together is the only missing
 	int singleNumber(vector<int>& nums) {
 		for (int i = 1; i < nums.size(); ++i)
 		{
