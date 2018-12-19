@@ -25,7 +25,6 @@ public:
 		{
 			return result;
 		}
-		int min = prices[0],max = 0;
 		for (int i = 0; i < prices.size()-1; ++i)
 		{
 			if (prices[i] < prices[i+1])
