@@ -1,5 +1,6 @@
 
 class string {
+
 public:
 	string(const char *str = NULL)
 	{
@@ -10,7 +11,8 @@ public:
 		}
 		else
 		{
-			_str = "";
+			_str = new char[1];
+			_str = '\0';
 		}
 	}
 
@@ -25,7 +27,7 @@ public:
 
 	string(const string& str)
 	{
-		this->_str = new char[strlen(str._str) + 1];
+		_str = new char[strlen(str._str) + 1];
 		strcpy_s(_str, strlen(str._str) + 1, str._str);
 	}
 
@@ -33,7 +35,8 @@ public:
 	{
 		if (this != &str)
 		{
-			delete[] _str;
+			if (_str)
+				delete[] _str;
 			_str = new char[strlen(str._str) + 1];
 			strcpy_s(_str, strlen(str._str) + 1, str._str);
 		}
