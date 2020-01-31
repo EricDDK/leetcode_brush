@@ -21,3 +21,25 @@ int quick_sort(int s[], int l, int r)
 	}
 	return 0;
 }
+
+// https://blog.csdn.net/otuhacker/article/details/10366563
+void quick_sort(ListNode* begin, ListNode* end)
+{
+	if (!begin || !end || begin == end)
+		return;
+	ListNode* first = begin;
+	ListNode* second = first->next;
+	int tmp = first->val;
+	while (second != end->next && second != NULL)
+	{
+		if (second->val < tmp)
+		{
+			first = first->next;
+			std::swap(first->val, second->val);
+		}
+		second = second->next;
+	}
+	std::swap(begin->val, first->val);
+	quick_sort(begin, first);
+	quick_sort(first->next, end);
+}
